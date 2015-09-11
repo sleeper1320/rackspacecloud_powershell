@@ -63,9 +63,10 @@ function Initialize-Identity {
     $script:OpenStackProvider = $PrivateData['identityProvider']
     
     Set-AccountAuthentication -CloudUserName $username -CloudAPIKey $api -CloudDDI $ddi
+    $scriptRoot = Split-Path ($script:MyInvocation.MyCommand.Path)
 
-    Write-Verbose "Attempting to import provider .\Providers\${OpenStackProvider}.psm1"
-    if(Test-path .\Providers\${OpenStackProvider}.psm1) { Import-Module ".\Providers\${OpenStackProvider}.psm1" }
+    Write-Verbose "Attempting to import provider $scriptRoot\Providers\${OpenStackProvider}.psm1"
+    if(Test-path $scriptRoot\Providers\${OpenStackProvider}.psm1) { Import-Module "$scriptRoot\Providers\${OpenStackProvider}.psm1" }
     else { 
         Write-Host -ForegroundColor Red -BackgroundColor Black `
         "Cannot find an implmentation for OpenStack provider `"${OpenStackProvider}`". All futher actions will fail... miserably." 

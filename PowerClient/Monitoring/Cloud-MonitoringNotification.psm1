@@ -17,11 +17,11 @@ function Add-CloudMonitoringNotification {
 
     Set-Variable -Name notificationUri -Value ((Get-IdentityMonitoringURI) + "/notifications")
 
-    #try {
+    try {
         return (Private-AddCloudMonitoringNotification -notificationUri $notificationUri -details $details -label $label -type $type -metadata $metadata)
-    #} catch {
-    #    Write-Host "Generic Error message that needs to be fixed here"
-    #}
+    } catch {
+        Write-Host "Generic Error message that needs to be fixed here"
+    }
 <#
     .SYNOPSIS
     Adds a monitoring notification.
