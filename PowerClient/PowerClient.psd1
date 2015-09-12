@@ -61,7 +61,10 @@ DotNetFrameworkVersion = '2.0'
 # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
 NestedModules = @(
     '.\Authentication.psm1',
+    '.\Configurations.psm1',
     '.\Core.psm1',
+    '.\RestAPIInterface.psm1',
+    '.\Networking\Cloud-Network.psm1',
     '.\Monitoring\Cloud-MonitoringAlarms.psm1',
     '.\Monitoring\Cloud-MonitoringChecks.psm1',
     '.\Monitoring\Cloud-MonitoringEntity.psm1',
@@ -72,7 +75,7 @@ NestedModules = @(
 )
 
 # Functions to export from this module
-FunctionsToExport = 'Add-*','Get-*','Remove-*','Request-*','Set-*','Test-*','Update-*'
+FunctionsToExport = 'Add-*','Get-*','Invoke-*','Remove-*','Request-*','Set-*','Test-*','Update-*', 'Use-*'
 
 # Cmdlets to export from this module
 CmdletsToExport = '*'
@@ -86,8 +89,11 @@ AliasesToExport = '*'
 # List of all modules packaged with this module
 ModuleList = @(
     '.\Authentication.psm1',
+    '.\Configurations.psm1',
     '.\Core.psm1',
     '.\IdentityProvider.psm1',
+    '.\RestAPIInterface.psm1',
+    '.\Networking\Cloud-Network.psm1',
     '.\Monitoring\Cloud-MonitoringAlarms.psm1',
     '.\Monitoring\Cloud-MonitoringChecks.psm1',
     '.\Monitoring\Cloud-MonitoringEntity.psm1',

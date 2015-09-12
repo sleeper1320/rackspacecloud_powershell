@@ -50,6 +50,18 @@ function Get-IdentityMonitoringURI {
 #>
 }
 
+function Get-IdentityNetworkURI {
+    param (
+        [Parameter(Position=0,Mandatory=$true)]
+        [ValidateNotNullOrEmpty()]
+        [String] $region
+    )
+    return (Get-ProviderNetworkURI -accessToken (Get-AccessToken) -region $region)
+}
+
+#=======================================================================================
+# This function intentionally left at the bottom.
+#=======================================================================================
 function Initialize-Identity {
     param()
 
